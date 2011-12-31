@@ -14,7 +14,7 @@ protected:
   void procedureCall( boost::shared_ptr<std_msgs::Int32> msg )
   {
     std::cout << "Procedure Call" << std::endl;
-    procedure_server_.
+    // send return value
   }
 
 public:
