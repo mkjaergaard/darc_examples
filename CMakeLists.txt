@@ -12,3 +12,4 @@ set(CMAKE_CXX_FLAGS "-Os")
 
 add_subdirectory(pubsub1)
 add_subdirectory(procedure1)
+add_subdirectory(dynamic_load)
