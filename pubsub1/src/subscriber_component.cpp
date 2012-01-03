@@ -1,13 +1,12 @@
 #include <darc/component.h>
-#include <darc/publish/subscriber.h>
-#include <darc/timer.h>
+#include <darc/pubsub/subscriber.h>
 
 #include <std_msgs/String.h>
 
 class MySubscriberComponent : public darc::Component
 {
 protected:
-  darc::publish::Subscriber<std_msgs::String> sub_;
+  darc::pubsub::Subscriber<std_msgs::String> sub_;
 
 protected:
   void subHandler( const boost::shared_ptr<std_msgs::String> msg )

@@ -1,6 +1,6 @@
 #include <darc/component.h>
 #include <darc/procedure/client.h>
-#include <darc/timer.h>
+#include <darc/timer/periodic_timer.h>
 
 #include <std_msgs/Int32.h>
 
@@ -8,7 +8,7 @@ class MyClientComponent : public darc::Component
 {
 protected:
   darc::procedure::Client<std_msgs::Int32, std_msgs::Int32, std_msgs::Int32> procedure_client_;
-  darc::Timer timer_;
+  darc::timer::PeriodicTimer timer_;
 
 protected:
   void timerHandler()

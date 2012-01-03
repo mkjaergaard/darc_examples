@@ -1,11 +1,11 @@
 #include <darc/node.h>
 #include <darc/component.h>
-#include <darc/timer.h>
+#include <darc/timer/periodic_timer.h>
 
 class MyTimerComponent : public darc::Component
 {
 protected:
-  darc::Timer timer_;
+  darc::timer::PeriodicTimer timer_;
 
 protected:
   void timerHandler( )

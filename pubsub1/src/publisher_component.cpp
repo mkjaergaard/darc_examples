@@ -1,15 +1,15 @@
 #include <darc/node.h>
 #include <darc/component.h>
-#include <darc/publish/publisher.h>
-#include <darc/timer.h>
+#include <darc/pubsub/publisher.h>
+#include <darc/timer/periodic_timer.h>
 
 #include <std_msgs/String.h>
 
 class MyPublisherComponent : public darc::Component
 {
 protected:
-  darc::publish::Publisher<std_msgs::String> pub_;
-  darc::Timer timer_;
+  darc::pubsub::Publisher<std_msgs::String> pub_;
+  darc::timer::PeriodicTimer timer_;
 
 protected:
   void timerHandler( )

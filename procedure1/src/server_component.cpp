@@ -1,7 +1,6 @@
 #include <darc/node.h>
 #include <darc/component.h>
 #include <darc/procedure/server.h>
-#include <darc/timer.h>
 
 #include <std_msgs/Int32.h>
 
