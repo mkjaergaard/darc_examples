@@ -1,6 +1,7 @@
 #include <iostream>
+#include <boost/thread.hpp>
 #include <darc/node.h>
-#include <darc/component_register.h>
+#include <darc/registry.h>
 #include <darc/component_loader.h>
 
 int main(int argc, const char* argv[])
@@ -12,7 +13,7 @@ int main(int argc, const char* argv[])
   darc::ComponentLoader::loadComponent("libtimer_component.so");
 
   // Create and run Component1
-  darc::Component::Ptr c1 = darc::ComponentRegister::instantiateComponent( "MyTimerComponent", node );
+  darc::Component::Ptr c1 = darc::Registry::instantiateComponent( "MyTimerComponent", node );
   boost::thread t1( boost::bind(&darc::Component::run, c1) );
 
   // Run Node in main thread
