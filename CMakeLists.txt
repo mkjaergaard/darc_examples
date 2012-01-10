@@ -8,7 +8,8 @@ include_directories(include)
 include_directories(${darc_INCLUDE_DIRS})
 include_directories(${ROS_INCLUDE_DIRS})
 
-set(CMAKE_CXX_FLAGS "-Os")
+set(CMAKE_CXX_FLAGS "-Wall -g")
+#set(CMAKE_CXX_FLAGS "-Os")
 
 add_subdirectory(pubsub1)
 add_subdirectory(procedure1)

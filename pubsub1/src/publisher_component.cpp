@@ -17,7 +17,7 @@ protected:
     boost::shared_ptr<std_msgs::String> msg( new std_msgs::String() );
     msg->data = "Hello";
     pub_.publish(msg);
-    std::cout << name_ << " publishing message" << std::endl;
+    //    std::cout << name_ << " publishing message" << std::endl;
   }
 
 public:
