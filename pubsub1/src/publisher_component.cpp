@@ -26,6 +26,7 @@ public:
     pub_(this, "mytopic"),
     timer_(this, boost::bind(&MyPublisherComponent::timerHandler, this), boost::posix_time::seconds(1))
   {
+    std::cout << "construct" << std::endl;
   }
 
 };
