@@ -3,6 +3,7 @@
 #include <darc/pubsub/publisher.h>
 #include <darc/timer/periodic_timer.h>
 #include <darc/parameter/parameter.h>
+#include <darc/log.h>
 
 #include <std_msgs/String.h>
 
@@ -18,8 +19,8 @@ protected:
   {
     boost::shared_ptr<std_msgs::String> msg( new std_msgs::String() );
     msg->data = "Hello";
+    DARC_INFO("Publishing message");
     pub_.publish(msg);
-    //    std::cout << name_ << " publishing message" << std::endl;
   }
 
 public:
@@ -29,7 +30,7 @@ public:
     timer_(this, boost::bind(&MyPublisherComponent::timerHandler, this), boost::posix_time::seconds(1)),
     myparam_(this, "myparam", 10)
   {
-    std::cout << "construct" << std::endl;
+    DARC_AUTOTRACE();
   }
 
 };
