@@ -1,4 +1,3 @@
-#include <darc/node.h>
 #include <darc/component.h>
 #include <darc/pubsub/publisher.h>
 #include <darc/timer/periodic_timer.h>
