@@ -9,7 +9,7 @@ protected:
   darc::pubsub::Subscriber<std_msgs::String> sub_;
 
 protected:
-  void subHandler( const boost::shared_ptr<std_msgs::String> msg )
+  void subHandler( const boost::shared_ptr<const std_msgs::String> msg )
   {
     std::cout << name_ << " received message: " << msg->data << std::endl;
   }
