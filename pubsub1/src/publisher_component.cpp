@@ -23,11 +23,11 @@ protected:
   }
 
 public:
-  MyPublisherComponent( const std::string& instance_name, darc::Node::Ptr node ) : 
+  MyPublisherComponent( const std::string& instance_name, darc::Node::Ptr node ) :
     darc::Component(instance_name, node),
     pub_(this, "mytopic"),
     timer_(this, boost::bind(&MyPublisherComponent::timerHandler, this), boost::posix_time::seconds(1)),
-    myparam_(this, "myparam", 10)
+    myparam_(this, "myparam")
   {
     DARC_AUTOTRACE();
   }

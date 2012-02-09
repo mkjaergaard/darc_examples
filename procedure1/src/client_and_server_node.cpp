@@ -17,9 +17,8 @@ int main(int argc, const char* argv[])
   boost::thread t2( boost::bind(&darc::Component::run, c2) );
 
   // Set up node connections
-  node->setNodeID(130);
   node->accept("udp://127.0.0.1:5130");
-  node->connect(135, "udp://127.0.0.1:5135");
+  node->connect("udp://127.0.0.1:5135");
 
   // Run Node in main thread
   node->run();
