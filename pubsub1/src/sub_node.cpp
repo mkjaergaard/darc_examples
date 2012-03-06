@@ -7,8 +7,8 @@ int main(int argc, const char* argv[])
   darc::Node::Ptr node = darc::Node::create();
 
   // Set up node connections manually
-  node->accept("udp://224.0.0.1:5120");
-  node->connect("udp://224.0.0.1:5120");
+  node->accept("udp://127.0.0.1:5120-5125");
+  node->connect("udp://127.0.0.1:5120-5125");
 
   // Instantiate SubscriberComponent
   darc::Component::Ptr c1 = node->instantiateComponent( "MySubscriberComponent" );

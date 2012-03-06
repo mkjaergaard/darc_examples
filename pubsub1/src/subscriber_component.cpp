@@ -1,5 +1,6 @@
 #include <darc/component.h>
 #include <darc/pubsub/subscriber.h>
+#include <darc/log.h>
 
 #include <std_msgs/String.h>
 
@@ -11,7 +12,7 @@ protected:
 protected:
   void subHandler( const boost::shared_ptr<const std_msgs::String> msg )
   {
-    std::cout << name_ << " received message: " << msg->data << std::endl;
+    DARC_INFO("%s", msg->data.c_str());
   }
 
 public:

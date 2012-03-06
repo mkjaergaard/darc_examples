@@ -29,7 +29,6 @@ public:
     timer_(this, boost::bind(&MyPublisherComponent::timerHandler, this), boost::posix_time::seconds(1)),
     myparam_(this, "myparam")
   {
-    DARC_AUTOTRACE();
   }
 
 };
