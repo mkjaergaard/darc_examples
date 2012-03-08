@@ -18,20 +18,23 @@ protected:
     procedure_client_.call(msg);
   }
 
-  void statusHandler( boost::shared_ptr<std_msgs::Int32> msg )
+  void statusHandler(const darc::procedure::CallID& call_id, boost::shared_ptr<std_msgs::Int32> msg)
   {
-    std::cout << "StatusHandler" << std::endl;
+    DARC_INFO("Feedback Call %s", call_id.short_string().c_str());
   }
 
-  void returnHandler( boost::shared_ptr<std_msgs::Int32> msg )
+  void returnHandler(const darc::procedure::CallID& call_id, boost::shared_ptr<std_msgs::Int32> msg)
   {
-    std::cout << "ReturnHandler" << std::endl;
+    DARC_INFO("Result Call %s", call_id.short_string().c_str());
   }
 
 public:
   MyClientComponent( const std::string& instance_name, darc::Node::Ptr node ) :
     darc::Component(instance_name, node),
-    procedure_client_( this, "myprocedure", boost::bind( &MyClientComponent::returnHandler, this, _1 ), boost::bind( &MyClientComponent::statusHandler, this, _1 ) ),
+    procedure_client_( this,
+		       "myprocedure",
+		       boost::bind( &MyClientComponent::returnHandler, this, _1, _2 ),
+		       boost::bind( &MyClientComponent::statusHandler, this, _1, _2 ) ),
     timer_( this, boost::bind(&MyClientComponent::timerHandler, this), boost::posix_time::seconds(1) )
   {
   }

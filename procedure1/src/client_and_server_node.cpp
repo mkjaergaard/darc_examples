@@ -10,11 +10,11 @@ int main(int argc, const char* argv[])
 
   // Create and run Component1
   darc::Component::Ptr c1 = darc::Registry::instantiateComponent( "MyServerComponent", node );
-  boost::thread t1( boost::bind(&darc::Component::run, c1) );
+  c1->run();
 
   // Create and run Component2
   darc::Component::Ptr c2 = darc::Registry::instantiateComponent( "MyClientComponent", node );
-  boost::thread t2( boost::bind(&darc::Component::run, c2) );
+  c2->run();
 
   // Set up node connections
   node->accept("udp://127.0.0.1:5130");

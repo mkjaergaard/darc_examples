@@ -10,16 +10,17 @@ protected:
   darc::procedure::Server<std_msgs::Int32, std_msgs::Int32, std_msgs::Int32> procedure_server_;
 
 protected:
-  void procedureCall( boost::shared_ptr<std_msgs::Int32> msg )
+  void procedureCall(const darc::procedure::CallID& call_id, boost::shared_ptr<std_msgs::Int32> msg)
   {
-    std::cout << "Procedure Call" << std::endl;
-    // send return value
+    DARC_INFO("Procedure Call %s", call_id.short_string().c_str());
+    procedure_server_.feedback(call_id, msg);
+    procedure_server_.result(call_id, msg);
   }
 
 public:
-  MyServerComponent( const std::string& instance_name, darc::Node::Ptr node ) : 
+  MyServerComponent( const std::string& instance_name, darc::Node::Ptr node ) :
     darc::Component(instance_name, node),
-    procedure_server_( this, "myprocedure", boost::bind(&MyServerComponent::procedureCall, this, _1) )
+    procedure_server_( this, "myprocedure", boost::bind(&MyServerComponent::procedureCall, this, _1, _2) )
   {
   }
 
