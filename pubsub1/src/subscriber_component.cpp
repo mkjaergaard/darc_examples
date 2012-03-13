@@ -12,13 +12,13 @@ protected:
 protected:
   void subHandler( const boost::shared_ptr<const std_msgs::String> msg )
   {
-    DARC_INFO("%s", msg->data.c_str());
+    DARC_INFO("Received Message: %s", msg->data.c_str());
   }
 
 public:
   MySubscriberComponent( const std::string& instance_name, darc::Node::Ptr node ) :
     darc::Component(instance_name, node),
-    sub_(this, "mytopic", boost::bind(&MySubscriberComponent::subHandler, this, _1) )
+    sub_(this, "/mytopic", boost::bind(&MySubscriberComponent::subHandler, this, _1) )
   {
   }
 
