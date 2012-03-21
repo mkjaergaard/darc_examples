@@ -12,4 +12,5 @@ include_directories(${ROS_INCLUDE_DIRS})
 
 add_subdirectory(pubsub1)
 add_subdirectory(procedure1)
+add_subdirectory(info)
 #add_subdirectory(dynamic_load)
