@@ -15,24 +15,22 @@ protected:
     procedure_client_.call(msg);
   }
 
-  void statusHandler(const darc::procedure::CallID& call_id, boost::shared_ptr<const std_msgs::Int32> msg)
-  {
-    DARC_INFO("Feedback %s", call_id.short_string().c_str());
-  }
-
-  void returnHandler(const darc::procedure::CallID& call_id, boost::shared_ptr<const std_msgs::Int32> msg)
+  void resultHandler(const darc::procedure::CallID& call_id, const std_msgs::Int32& msg)
   {
     DARC_INFO("Result %s", call_id.short_string().c_str());
   }
 
+  void feedbackHandler(const darc::procedure::CallID& call_id, const std_msgs::Int32& msg)
+  {
+    DARC_INFO("Feedback %s", call_id.short_string().c_str());
+  }
+
 public:
   MyClientComponent() :
-    procedure_client_(this,
-		      "myprocedure",
-		      boost::bind( &MyClientComponent::returnHandler, this, _1, _2 ),
-		      boost::bind( &MyClientComponent::statusHandler, this, _1, _2 ) ),
+    procedure_client_(this, "/myprocedure", &MyClientComponent::resultHandler),
     timer_(this, &MyClientComponent::timerHandler, boost::posix_time::seconds(1))
   {
+    procedure_client_.registerFeedbackHandler(this, &MyClientComponent::feedbackHandler);
   }
 
 };
