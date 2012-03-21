@@ -1,4 +1,3 @@
-#include <iostream>
 #include <darc/darc.h>
 
 int main(int argc, const char* argv[])
@@ -22,4 +21,3 @@ int main(int argc, const char* argv[])
   node->run(); // This is blocking
   return 0;
 }
-
