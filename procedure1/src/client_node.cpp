@@ -1,22 +1,20 @@
 #include <iostream>
-#include <boost/thread.hpp>
-#include <darc/node.h>
-#include <darc/registry.h>
+#include <darc/darc.h>
 
 int main(int argc, const char* argv[])
 {
   // Create Node
-  darc::Node::Ptr node = darc::Node::create();
+  darc::NodePtr node = darc::Node::create();
 
   // Create and run Component1
-  darc::Component::Ptr c1 = darc::Registry::instantiateComponent( "MyClientComponent", node );
+  darc::ComponentPtr c1 = node->instantiateComponent("MyClientComponent");
   c1->run();
 
   // Set up node connections
-  node->accept("udp://127.0.0.1:5130-5135");
-  node->connect("udp://127.0.0.1:5130-5135");
+  node->accept("udp://127.0.0.1:5120-5125");
+  node->connect("udp://127.0.0.1:5120-5125");
 
   // Run Node in main thread
-  node->run();
+  node->runCurrentThread();
   return 0;
 }
