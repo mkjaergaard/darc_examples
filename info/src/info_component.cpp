@@ -33,7 +33,7 @@ public:
 
   void onStart()
   {
-    timer_.start(boost::posix_time::seconds(2));
+    timer_.startTimer(boost::posix_time::seconds(1));
   }
 
 };
