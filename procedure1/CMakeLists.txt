@@ -16,7 +16,3 @@ add_executable(server_node
   src/server_node.cpp
   src/my_server_component.cpp)
 target_link_libraries(server_node ${darc_LIBRARIES})
-
-# PyBindings for the components
-darc_pybindings(MyClientComponent src/my_client_component.cpp)
-darc_pybindings(MyServerComponent src/my_server_component.cpp)

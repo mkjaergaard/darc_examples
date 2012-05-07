@@ -11,6 +11,3 @@ add_executable(sub_node
   src/my_subscriber_component.cpp)
 target_link_libraries(sub_node ${darc_LIBRARIES})
 
-# PyBindings for the components
-darc_pybindings(MyPublisherComponent src/my_publisher_component.cpp)
-darc_pybindings(MySubscriberComponent src/my_subscriber_component.cpp)
