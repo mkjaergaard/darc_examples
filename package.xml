@@ -1,0 +1,16 @@
+<package>
+  <name>darc_examples</name>
+  <version>0.2.0</version>
+  <description>Example components for darc</description>
+  <author>Morten Kjaergaard</author>
+  <maintainer email="none@none.com">Morten Kjaergaard</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>iris</run_depend>
+  <run_depend>darc</run_depend>
+
+  <build_depend>iris</build_depend>
+  <build_depend>darc</build_depend>
+</package>
