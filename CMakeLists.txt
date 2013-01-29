@@ -6,12 +6,10 @@ find_package(catkin)
 find_package(catkin REQUIRED COMPONENTS darc_component)
 include_directories(${catkin_INCLUDE_DIRS})
 
-add_executable(talker
-  src/talker_component.cpp
-  ../darc_component/src/autostart_peer.cpp) # todo: link instead
-target_link_libraries(talker ${catkin_LIBRARIES})
+add_library(talker_component SHARED
+  src/talker_component.cpp)
+target_link_libraries(talker_component ${catkin_LIBRARIES})
 
-add_executable(listener
-  src/listener_component.cpp
-  ../darc_component/src/autostart_peer.cpp) # todo: link instead
-target_link_libraries(listener ${catkin_LIBRARIES})
+add_library(listener_component SHARED
+  src/listener_component.cpp)
+target_link_libraries(listener_component ${catkin_LIBRARIES})
