@@ -16,7 +16,7 @@ class talker_component : public darc::component, public iris::static_scope<iris:
     *msg = std::string("Hello World ").append(boost::to_string(++count_));
 
     slog<iris::Info>("Publishing",
-		     "Msg", iris::arg<std::string>(*msg));
+                     "Msg", iris::arg<std::string>(*msg));
 
     chatter_pub_.publish(msg);
   }

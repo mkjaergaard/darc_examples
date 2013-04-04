@@ -9,7 +9,7 @@ class listener_component : public darc::component, public iris::static_scope<iri
   void chatter_callback(const boost::shared_ptr<const std::string> msg)
   {
     slog<iris::Info>("Received",
-		     "msg", iris::arg<std::string>(*msg));
+                     "msg", iris::arg<std::string>(*msg));
   }
 
 public:
